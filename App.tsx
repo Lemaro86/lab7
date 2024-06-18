@@ -3,12 +3,12 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
 import DeviceScreen from "@/screens/DeviceScreen";
 import ShopScreen from "@/screens/ShopScreen";
-import {store} from "@/store";
-import {Provider} from "react-redux";
+import {store} from './store';
+import {Provider} from 'react-redux';
 
 const Stack = createNativeStackNavigator();
 
-export default function RootLayout() {
+export default function App() {
     return (
         <Provider store={store}>
             <NavigationContainer independent={true}>
