@@ -22,7 +22,7 @@ export default function ShopScreen({navigation}) {
     return (
         <ScrollView>
             <View style={styles.page}>
-                {!!devices && devices.map((device) => (
+                {!!devices && devices.map((device: any) => (
                     <DeviceCard key={device.pk} {...device} navigation={navigation}/>
                 ))}
             </View>
@@ -35,8 +35,9 @@ const styles = StyleSheet.create({
     page: {
         display: 'flex',
         width: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
         backgroundColor: '#fff',
+        flexDirection: 'row'
     },
 });
