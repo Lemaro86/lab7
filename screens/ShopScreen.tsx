@@ -13,7 +13,11 @@ export default function ShopScreen({navigation}) {
 
     useEffect(() => {
         async function getAllDevices() {
-            await axiosInstance.get('/service/').then((response) => dispatch(setDevices(response?.data)));
+            try{
+                await axiosInstance.get('/service/').then((response) => dispatch(setDevices(response?.data)));
+            } catch (e){
+                console.log('error', e);
+            }
         }
 
         getAllDevices();
@@ -38,6 +42,5 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
         backgroundColor: '#fff',
-        flexDirection: 'row'
     },
 });

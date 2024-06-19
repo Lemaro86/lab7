@@ -1,9 +1,8 @@
-import {View, Text, Button, Image} from 'react-native';
+import {View, Text, Button,StyleSheet, Image} from 'react-native';
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {axiosInstance} from "@/API";
 import {setDevice} from "@/store/deviceSlice";
-import {StyleSheet} from 'react-native';
 
 type IDeviceScreen = {
     navigation: any;
@@ -30,14 +29,14 @@ export default function DeviceScreen({navigation, route}: IDeviceScreen) {
         <View style={styles.main}>
             <Text style={styles.title}>{device.title}</Text>
             <Image style={styles.img} source={{uri: `${device.url}`}}/>
-            <Text style={styles.desc}>{device.description}</Text>
+            <Text style={styles.description}>{device.description}</Text>
             <Text style={styles.cost}>Цена: {device.cost} Р</Text>
             <Button title={'Назад'} onPress={() => navigation.navigate('Shop')}/>
         </View>
     );
 }
 
-const styles = StyleSheet.create({
+const styles= StyleSheet.create({
     main: {
         width: 360,
         marginTop: 50,
@@ -54,10 +53,12 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 20
     },
-    desc: {
+    description: {
         fontSize: 16,
         lineHeight: 18,
-        marginBottom: 20
+        marginBottom: 20,
+        minHeight: 72,
+        overflow: "hidden",
     },
     cost: {
         marginBottom: 20,

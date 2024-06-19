@@ -15,10 +15,12 @@ export default function DeviceCard(props: ICard) {
     return (
         <View style={styles.main}>
             <Text style={styles.title}>{props.title} 12</Text>
-            <Image style={styles.img} source={{ uri: `${props.url}`}} resizeMode='contain' />
+            <View style={styles.imgBox}>
+                <Image style={styles.img} source={{uri: `${props.url}`}} resizeMode='contain'/>
+            </View>
             <Text style={styles.desc}>{props.description}</Text>
             <Text style={styles.cost}>{parseInt(props.cost)} Р</Text>
-            <Button title='Подробнее' onPress={() => props.navigation.navigate('Device',  { pk: props.pk })}/>
+            <Button title='Подробнее' onPress={() => props.navigation.navigate('Device', {pk: props.pk})}/>
         </View>
     );
 }
@@ -30,6 +32,11 @@ const styles = StyleSheet.create({
         marginTop: 50,
         marginLeft: 'auto',
         marginRight: 'auto',
+        paddingBottom: 40
+    },
+    imgBox: {
+        width: 360,
+        height: 250,
     },
     img: {
         width: 360,
@@ -39,12 +46,14 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         fontWeight: 'bold',
-        marginBottom: 20
+        marginBottom: 20,
+        height: 46
     },
     desc: {
         fontSize: 16,
         lineHeight: 18,
-        marginBottom: 20
+        marginBottom: 20,
+        minHeight: 72,
     },
     cost: {
         marginBottom: 20,
